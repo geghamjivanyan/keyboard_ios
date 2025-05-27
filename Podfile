@@ -1,5 +1,7 @@
 platform :ios, '15.0'
 
+project 'Keyboard.xcodeproj'
+
 target 'Keyboard' do
   use_frameworks!
   

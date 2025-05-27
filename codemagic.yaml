@@ -8,6 +8,16 @@ workflows:
       node: latest
       cocoapods: default
     scripts:
+      - name: Install XcodeGen
+        script: |
+          #!/usr/bin/env bash
+          set -e
+          brew install xcodegen
+      - name: Generate Xcode project
+        script: |
+          #!/usr/bin/env bash
+          set -e
+          xcodegen generate
       - name: Install dependencies
         script: |
           #!/usr/bin/env bash

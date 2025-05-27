@@ -1,0 +1,31 @@
+name: Keyboard
+options:
+  bundleIdPrefix: com.keyboard
+  deploymentTarget:
+    iOS: 15.0
+
+targets:
+  Keyboard:
+    type: app-extension
+    platform: iOS
+    sources:
+      - Keyboard
+    settings:
+      base:
+        INFOPLIST_FILE: Keyboard/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.keyboard.keyboard
+    info:
+      path: Keyboard/Info.plist
+      properties:
+        CFBundleDisplayName: Keyboard
+        CFBundleIdentifier: com.keyboard.keyboard
+        CFBundleName: Keyboard
+        CFBundlePackageType: XPC!
+        CFBundleShortVersionString: 1.0.0
+        CFBundleVersion: 1
+        NSExtension:
+          NSExtensionAttributes:
+            IsASCIICapable: true
+            NeedsInputModeSwitchKey: true
+            PrimaryLanguage: en-US
+          NSExtensionPointIdentifier: com.apple.keyboard-service 
