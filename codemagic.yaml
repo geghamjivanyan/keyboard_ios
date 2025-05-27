@@ -27,18 +27,27 @@ workflows:
         script: |
           #!/usr/bin/env bash
           set -e
-          xcodebuild build-for-distribution \
+          # Build and archive the host app
+          xcodebuild archive \
             -workspace Keyboard.xcworkspace \
             -scheme KeyboardHost \
             -configuration Release \
             -destination 'generic/platform=iOS' \
             -archivePath $CM_BUILD_DIR/KeyboardHost.xcarchive
-          xcodebuild build-for-distribution \
+          
+          # Build and archive the keyboard extension
+          xcodebuild archive \
             -workspace Keyboard.xcworkspace \
             -scheme Keyboard \
             -configuration Release \
             -destination 'generic/platform=iOS' \
             -archivePath $CM_BUILD_DIR/Keyboard.xcarchive
+          
+          # Export the host app IPA
+          xcodebuild -exportArchive \
+            -archivePath $CM_BUILD_DIR/KeyboardHost.xcarchive \
+            -exportPath $CM_BUILD_DIR/ios/ipa \
+            -exportOptionsPlist exportOptions.plist
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
