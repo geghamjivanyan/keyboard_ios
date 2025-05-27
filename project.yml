@@ -5,6 +5,27 @@ options:
     iOS: 15.0
 
 targets:
+  KeyboardHost:
+    type: application
+    platform: iOS
+    sources:
+      - KeyboardHost
+    settings:
+      base:
+        INFOPLIST_FILE: KeyboardHost/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.keyboard.host
+    info:
+      path: KeyboardHost/Info.plist
+      properties:
+        CFBundleDisplayName: Keyboard Host
+        CFBundleIdentifier: com.keyboard.host
+        CFBundleName: KeyboardHost
+        CFBundlePackageType: APPL
+        CFBundleShortVersionString: 1.0.0
+        CFBundleVersion: 1
+        UILaunchStoryboardName: LaunchScreen
+        UIMainStoryboardFile: Main
+
   Keyboard:
     type: app-extension
     platform: iOS

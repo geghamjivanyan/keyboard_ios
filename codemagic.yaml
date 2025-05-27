@@ -29,6 +29,12 @@ workflows:
           set -e
           xcodebuild build-for-distribution \
             -workspace Keyboard.xcworkspace \
+            -scheme KeyboardHost \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath $CM_BUILD_DIR/KeyboardHost.xcarchive
+          xcodebuild build-for-distribution \
+            -workspace Keyboard.xcworkspace \
             -scheme Keyboard \
             -configuration Release \
             -destination 'generic/platform=iOS' \
