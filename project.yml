@@ -25,6 +25,8 @@ targets:
         CFBundleVersion: 1
         UILaunchStoryboardName: LaunchScreen
         UIMainStoryboardFile: Main
+    dependencies:
+      - target: Keyboard
 
   Keyboard:
     type: app-extension
