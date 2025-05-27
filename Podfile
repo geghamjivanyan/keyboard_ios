@@ -1,8 +1,5 @@
 platform :ios, '15.0'
 
-workspace 'Keyboard'
-project 'Keyboard/Keyboard.xcodeproj'
-
 target 'Keyboard' do
   use_frameworks!
   
