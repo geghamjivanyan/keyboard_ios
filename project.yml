@@ -1,54 +1,49 @@
-name: Keyboard
+name: ArabicKeyboard
 options:
-  bundleIdPrefix: com.keyboard
+  bundleIdPrefix: com.arabickeyboard
   deploymentTarget:
     iOS: 15.0
+  xcodeVersion: "15.0"
+  generateEmptyDirectories: true
 
 targets:
   KeyboardHost:
     type: application
     platform: iOS
     sources:
-      - KeyboardHost
+      - path: KeyboardHost
+        excludes:
+          - "*.md"
     settings:
       base:
-        INFOPLIST_FILE: KeyboardHost/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.keyboard.host
+        PRODUCT_BUNDLE_IDENTIFIER: com.arabickeyboard.host
+        DEVELOPMENT_TEAM: ""  # Добавьте ваш Development Team ID если есть
+        CODE_SIGN_IDENTITY: "Apple Development"
+        CODE_SIGN_STYLE: Automatic
+    dependencies:
+      - target: Keyboard
     info:
       path: KeyboardHost/Info.plist
       properties:
-        CFBundleDisplayName: Keyboard Host
-        CFBundleIdentifier: com.keyboard.host
-        CFBundleName: KeyboardHost
-        CFBundlePackageType: APPL
-        CFBundleShortVersionString: 1.0.0
-        CFBundleVersion: 1
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         UILaunchStoryboardName: LaunchScreen
-        UIMainStoryboardFile: Main
-    dependencies:
-      - target: Keyboard
+        LSRequiresIPhoneOS: true
 
   Keyboard:
     type: app-extension
     platform: iOS
     sources:
-      - Keyboard
+      - path: Keyboard
+        excludes:
+          - "*.md"
     settings:
       base:
-        INFOPLIST_FILE: Keyboard/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.keyboard.keyboard
+        PRODUCT_BUNDLE_IDENTIFIER: com.arabickeyboard.keyboard
+        DEVELOPMENT_TEAM: ""  # Добавьте ваш Development Team ID если есть
+        CODE_SIGN_IDENTITY: "Apple Development"
+        CODE_SIGN_STYLE: Automatic
+    dependencies:
+      - sdk: Foundation.framework
+      - sdk: UIKit.framework
     info:
-      path: Keyboard/Info.plist
-      properties:
-        CFBundleDisplayName: Keyboard
-        CFBundleIdentifier: com.keyboard.keyboard
-        CFBundleName: Keyboard
-        CFBundlePackageType: XPC!
-        CFBundleShortVersionString: 1.0.0
-        CFBundleVersion: 1
-        NSExtension:
-          NSExtensionAttributes:
-            IsASCIICapable: true
-            NeedsInputModeSwitchKey: true
-            PrimaryLanguage: en-US
-          NSExtensionPointIdentifier: com.apple.keyboard-service 
+      path: Keyboard/Info.plist 
