@@ -1,1 +1,13 @@
 إهمال
+
+
+https://phonemics.net/api/search  
+request
+{
+  "text": ,
+}
+response
+{
+  "suggestions": list of strings
+  "rhythms": list of strings
+}
