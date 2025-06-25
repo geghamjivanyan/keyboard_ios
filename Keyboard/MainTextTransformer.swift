@@ -9,6 +9,7 @@ class MainTextTransformer {
 
     private func loadConversionRules() {
         let csvData = """
+        ء,أ
         ـَ,ـا
         ً,ًـ
         ٍ,ٍـ
