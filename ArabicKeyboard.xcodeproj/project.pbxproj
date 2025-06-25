@@ -49,6 +49,7 @@
 		241B2A1F2DEE2D5200FA3D96 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		241B2A212DEE325500FA3D96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		241B2A232DEE356100FA3D96 /* MainTextTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextTransformer.swift; sourceTree = "<group>"; };
+		24B8D1292E0C7C6800FD5B6B /* notes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = notes.txt; sourceTree = SOURCE_ROOT; };
 		53B6283F3906475CC0232DDB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		714DECEDCE9FE0E8B2EB35A4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86954E492EE84B26A2B43712 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 			children = (
 				05A41BF08569E634213F1027 /* Info.plist */,
 				878880C1767BB826158EC9A5 /* KeyboardViewController.swift */,
+				24B8D1292E0C7C6800FD5B6B /* notes.txt */,
 				241B2A232DEE356100FA3D96 /* MainTextTransformer.swift */,
 			);
 			path = Keyboard;

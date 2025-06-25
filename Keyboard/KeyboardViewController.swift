@@ -74,11 +74,11 @@ final class KeyboardViewController: UIInputViewController {
             Key(english: "x", arabic: "↵", color: UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0), action: .enter)
         ]
     ]
-    
+
     let keyboard2: [[Key]] = [
         [
             Key(english: "a", arabic: "", color: UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0), action: .delete),
-            Key(english: "b", arabic: "تشكيل", color: UIColor(red: 200/255, green: 210/255, blue: 250/255, alpha: 1.0), action: .switchKeyboard),
+            Key(english: "b", arabic: "إهمال", color: UIColor(red: 200/255, green: 210/255, blue: 250/255, alpha: 1.0), action: .switchKeyboard),
             Key(english: "c", arabic: "ل", color: UIColor(red: 230/255, green: 230/255, blue: 180/255, alpha: 1.0)),
             Key(english: "d", arabic: "ا", color: UIColor(red: 240/255, green: 200/255, blue: 200/255, alpha: 1.0)),
             Key(english: "e", arabic: "و", color: UIColor(red: 240/255, green: 200/255, blue: 200/255, alpha: 1.0)),
