@@ -45,9 +45,9 @@ final class KeyboardViewController: UIInputViewController {
             Key(english: "a", arabic: "", color: UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0), action: .delete),
             Key(english: "b", arabic: "تشكيل", color: UIColor(red: 200/255, green: 210/255, blue: 250/255, alpha: 1.0), action: .switchKeyboard),
             Key(english: "c", arabic: "ل", color: UIColor(red: 230/255, green: 230/255, blue: 180/255, alpha: 1.0)),
-            Key(english: "d", arabic: "َ", color: UIColor(red: 240/255, green: 200/255, blue: 200/255, alpha: 1.0)),
-            Key(english: "e", arabic: "ُ", color: UIColor(red: 240/255, green: 200/255, blue: 200/255, alpha: 1.0)),
-            Key(english: "f", arabic: "ِ", color: UIColor(red: 240/255, green: 200/255, blue: 200/255, alpha: 1.0))
+            Key(english: "d", arabic: "َ ", color: UIColor(red: 240/255, green: 200/255, blue: 200/255, alpha: 1.0)),
+            Key(english: "e", arabic: "ُ ", color: UIColor(red: 240/255, green: 200/255, blue: 200/255, alpha: 1.0)),
+            Key(english: "f", arabic: "ِ ", color: UIColor(red: 240/255, green: 200/255, blue: 200/255, alpha: 1.0))
         ],
         [
             Key(english: "g", arabic: "ف", color: UIColor(red: 211/255, green: 151/255, blue: 211/255, alpha: 1.0)),
