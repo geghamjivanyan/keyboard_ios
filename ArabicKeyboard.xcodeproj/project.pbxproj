@@ -11,6 +11,8 @@
 		241B2A202DEE2D5200FA3D96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 241B2A1F2DEE2D5200FA3D96 /* Main.storyboard */; };
 		241B2A222DEE325500FA3D96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241B2A212DEE325500FA3D96 /* SceneDelegate.swift */; };
 		241B2A242DEE356700FA3D96 /* MainTextTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241B2A232DEE356100FA3D96 /* MainTextTransformer.swift */; };
+		24B8D12B2E0C83F200FD5B6B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8D12A2E0C83F200FD5B6B /* NetworkService.swift */; };
+		24B8D12D2E0C878C00FD5B6B /* SuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8D12C2E0C878C00FD5B6B /* SuggestionCell.swift */; };
 		297D9A2ED2DAD6AEFD3A1AEF /* Keyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8F7421773BF39FF6F20091A6 /* Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2BBA7899E8A81F7CD7245A87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 714DECEDCE9FE0E8B2EB35A4 /* LaunchScreen.storyboard */; };
 		A6468DCA7664D5BEAF2C725A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0231715F6E014D4F6EDBAA8 /* UIKit.framework */; };
@@ -50,6 +52,8 @@
 		241B2A212DEE325500FA3D96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		241B2A232DEE356100FA3D96 /* MainTextTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextTransformer.swift; sourceTree = "<group>"; };
 		24B8D1292E0C7C6800FD5B6B /* notes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = notes.txt; sourceTree = SOURCE_ROOT; };
+		24B8D12A2E0C83F200FD5B6B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		24B8D12C2E0C878C00FD5B6B /* SuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCell.swift; sourceTree = "<group>"; };
 		53B6283F3906475CC0232DDB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		714DECEDCE9FE0E8B2EB35A4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86954E492EE84B26A2B43712 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,8 +100,10 @@
 			children = (
 				05A41BF08569E634213F1027 /* Info.plist */,
 				878880C1767BB826158EC9A5 /* KeyboardViewController.swift */,
+				24B8D12C2E0C878C00FD5B6B /* SuggestionCell.swift */,
 				24B8D1292E0C7C6800FD5B6B /* notes.txt */,
 				241B2A232DEE356100FA3D96 /* MainTextTransformer.swift */,
+				24B8D12A2E0C83F200FD5B6B /* NetworkService.swift */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -221,7 +227,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9415D359F30C1E6CBEAE1FB /* KeyboardViewController.swift in Sources */,
+				24B8D12B2E0C83F200FD5B6B /* NetworkService.swift in Sources */,
 				241B2A242DEE356700FA3D96 /* MainTextTransformer.swift in Sources */,
+				24B8D12D2E0C878C00FD5B6B /* SuggestionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

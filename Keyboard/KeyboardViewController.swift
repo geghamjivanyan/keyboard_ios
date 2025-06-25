@@ -2,8 +2,13 @@ import UIKit
 
 final class KeyboardViewController: UIInputViewController {
 
+    var suggestions: [String] = []
+    var rhythms: [String] = []
+    var suggestionsCollectionView: UICollectionView!
+    var rhythmsCollectionView: UICollectionView!
     @IBOutlet var nextKeyboardButton: UIButton!
     private let mainTextTransformer = MainTextTransformer()
+    private let networkService = NetworkService()
 
     // Структура для клавиши
     struct Key {
@@ -131,6 +136,7 @@ final class KeyboardViewController: UIInputViewController {
         
         // Создаем нашу клавиатуру
         setupHexagonalKeyboard()
+        setupSuggestionsBar()
     }
     
     func setupHexagonalKeyboard() {
@@ -154,19 +160,21 @@ final class KeyboardViewController: UIInputViewController {
         // Учитываем, что ширина шестиугольника = размер * cos(30°) * 2 ≈ размер * 1.732
         // И нужно учесть смещение рядов
         let availableWidth = screenWidth - (padding * 2)
-        let hexWidth = availableWidth / (numColumns + 0.5) // +0.5 для смещения
+        let hexWidth = availableWidth / (numColumns + 0.5) * 0.55 // +0.5 для смещения
         let hexSize = hexWidth / 0.866 // обратное от cos(30°)
         
         let horizontalSpacing: CGFloat = hexWidth
         let verticalSpacing: CGFloat = hexSize * 0.75 // для плотного расположения
         let startX: CGFloat = padding + hexSize * 0.433 // половина ширины шестиугольника
-        let startY: CGFloat = 8
-        
+        let startY: CGFloat = 88
+
         for (rowIndex, row) in currentLayout.enumerated() {
+            let itemsInRow = row.count
+            let rowWidth = CGFloat(itemsInRow - 1) * horizontalSpacing + hexWidth
+            let rowOffset = CGFloat(rowIndex % 2 == 1 ? 1 : 0.0) * horizontalSpacing
+            let startX = (screenWidth - rowWidth - rowOffset) / 2
+
             var rowButtons: [UIButton] = []
-            
-            // Смещение для нечетных рядов (сдвиг вправо)
-            let rowOffset = rowIndex % 2 == 1 ? horizontalSpacing / 2 : 0
             
             for (colIndex, key) in row.enumerated() {
                 let button = createHexagonButton(key: key, size: hexSize)
@@ -191,7 +199,50 @@ final class KeyboardViewController: UIInputViewController {
             keyboardButtons.append(rowButtons)
         }
     }
-    
+
+    func setupSuggestionsBar() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 8
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+
+        suggestionsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        suggestionsCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        suggestionsCollectionView.backgroundColor = UIColor.systemGray6
+        suggestionsCollectionView.showsHorizontalScrollIndicator = false
+        suggestionsCollectionView.dataSource = self
+        suggestionsCollectionView.delegate = self
+        suggestionsCollectionView.register(SuggestionCell.self, forCellWithReuseIdentifier: "SuggestionCell")
+
+        view.addSubview(suggestionsCollectionView)
+
+        let layout2 = UICollectionViewFlowLayout()
+        layout2.scrollDirection = .horizontal
+        layout2.minimumInteritemSpacing = 8
+        layout2.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+
+        rhythmsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout2)
+        rhythmsCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        rhythmsCollectionView.backgroundColor = UIColor.systemGray6
+        rhythmsCollectionView.showsHorizontalScrollIndicator = false
+        rhythmsCollectionView.dataSource = self
+        rhythmsCollectionView.delegate = self
+        rhythmsCollectionView.register(SuggestionCell.self, forCellWithReuseIdentifier: "SuggestionCell1")
+
+        view.addSubview(rhythmsCollectionView)
+
+        NSLayoutConstraint.activate([
+            suggestionsCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            suggestionsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            suggestionsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            rhythmsCollectionView.topAnchor.constraint(equalTo: suggestionsCollectionView.bottomAnchor),
+            rhythmsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            rhythmsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            suggestionsCollectionView.heightAnchor.constraint(equalToConstant: 40),
+            rhythmsCollectionView.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+
     func createHexagonButton(key: Key, size: CGFloat) -> UIButton {
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 0, y: 0, width: size, height: size)
@@ -337,6 +388,15 @@ final class KeyboardViewController: UIInputViewController {
                     (textDocumentProxy as UIKeyInput).deleteBackward()
                 }
                 textDocumentProxy.insertText(transformedText)
+
+                networkService.sendPhonemicsRequest(text: transformedText, completion: { response in
+                    self.suggestions = response.data.suggestions
+                    self.rhythms = response.data.rhythms
+                    DispatchQueue.main.async {
+                        self.suggestionsCollectionView.reloadData()
+                        self.rhythmsCollectionView.reloadData()
+                    }
+                })
             }
         }
     }
@@ -449,5 +509,51 @@ final class KeyboardViewController: UIInputViewController {
             textColor = UIColor.black
         }
         self.nextKeyboardButton?.setTitleColor(textColor, for: [])
+    }
+}
+
+extension KeyboardViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    // MARK: - CollectionView Data Source
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView === suggestionsCollectionView {
+            return suggestions.count
+        }
+        return rhythms.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView === suggestionsCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SuggestionCell", for: indexPath) as! SuggestionCell
+            cell.label.text = suggestions[indexPath.item]
+            return cell
+        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SuggestionCell1", for: indexPath) as! SuggestionCell
+        cell.label.text = rhythms[indexPath.item]
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == suggestionsCollectionView {
+            let suggestion = suggestions[indexPath.item]
+            textDocumentProxy.insertText(suggestion)
+            return
+        }
+        let rhythm = rhythms[indexPath.item]
+        textDocumentProxy.insertText(rhythm)
+    }
+
+    // MARK: - Flow Layout
+
+    func collectionView(_ collectionView: UICollectionView, layout
+                        collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView === suggestionsCollectionView {
+            let text = suggestions[indexPath.item]
+            let width = text.size(withAttributes: [.font: UIFont.systemFont(ofSize: 16)]).width + 20
+            return CGSize(width: width, height: 30)
+        }
+        let text = rhythms[indexPath.item]
+        let width = text.size(withAttributes: [.font: UIFont.systemFont(ofSize: 16)]).width + 20
+        return CGSize(width: width, height: 30)
     }
 }
