@@ -1,0 +1,9 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "8a3ff10b9e437fdb96e5c601a65ad53ac843bd928fd118c9e0930c5ba4635e77"
+build_start_time: [1754386911, 787190000]
+build_end_time: [1754386914, 907610000]
+inputs:
+  "/Users/macbook/Desktop/keyboard_ios/Keyboard/KeyboardViewController.swift": [1754294743, 475803807]
+  "/Users/macbook/Desktop/keyboard_ios/Keyboard/MainTextTransformer.swift": [1754294743, 476096512]
+  "/Users/macbook/Desktop/keyboard_ios/Keyboard/NetworkService.swift": [1754294743, 476246095]
+  "/Users/macbook/Desktop/keyboard_ios/Keyboard/SuggestionCell.swift": [1754294743, 476386593]

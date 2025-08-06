@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'KeyboardHost' in project 'ArabicKeyboard'
+➜ Explicit dependency on target 'Keyboard' in project 'ArabicKeyboard'
+Target 'Keyboard' in project 'ArabicKeyboard' (no dependencies)

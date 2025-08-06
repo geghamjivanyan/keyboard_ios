@@ -19,6 +19,7 @@
 		AAFEC1F4612453E1616FCCAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B6283F3906475CC0232DDB /* Foundation.framework */; };
 		C9415D359F30C1E6CBEAE1FB /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878880C1767BB826158EC9A5 /* KeyboardViewController.swift */; };
 		E0B9ECF2419EB625C254598A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86954E492EE84B26A2B43712 /* AppDelegate.swift */; };
+		FA657EB52E40FC2700E04636 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA657EB52E40FC2700E04637 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,16 @@
 		};
 /* End PBXCopyFilesBuildPhase section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		DD713A739E78941BD45EABA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXFileReference section */
 		05A41BF08569E634213F1027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		16E65EB6FEE6EB8ADDAAD948 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +73,8 @@
 		A0231715F6E014D4F6EDBAA8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A821926E7EC39E95AFB5CD13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D8DDD42DFBBE369C3CE342B5 /* KeyboardHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA657EB42E40FBE700E04636 /* Keyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Keyboard.entitlements; sourceTree = "<group>"; };
+		FA657EB52E40FC2700E04637 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +111,7 @@
 		878E458D052E9269DF8E6828 /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				FA657EB42E40FBE700E04636 /* Keyboard.entitlements */,
 				05A41BF08569E634213F1027 /* Info.plist */,
 				878880C1767BB826158EC9A5 /* KeyboardViewController.swift */,
 				24B8D12C2E0C878C00FD5B6B /* SuggestionCell.swift */,
@@ -117,6 +131,7 @@
 				241B2A1F2DEE2D5200FA3D96 /* Main.storyboard */,
 				16E65EB6FEE6EB8ADDAAD948 /* ViewController.swift */,
 				241B2A212DEE325500FA3D96 /* SceneDelegate.swift */,
+				FA657EB52E40FC2700E04637 /* Assets.xcassets */,
 			);
 			path = KeyboardHost;
 			sourceTree = "<group>";
@@ -157,6 +172,7 @@
 			buildConfigurationList = BA01396D0DF88DA251352007 /* Build configuration list for PBXNativeTarget "KeyboardHost" */;
 			buildPhases = (
 				DD713A739E78941BD45EABA7 /* Sources */,
+				DD713A739E78941BD45EABA8 /* Frameworks */,
 				B1AB78789965C766374017F9 /* Resources */,
 				FC533376E6ADB30A0856D178 /* Embed Foundation Extensions */,
 			);
@@ -180,15 +196,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1640;
-				TargetAttributes = {
-					329854D6107ACD51505F7117 = {
-						ProvisioningStyle = Automatic;
-					};
-					E1EC7A9085BEC73A45EDA4CB = {
-						DevelopmentTeam = "";
-						ProvisioningStyle = Automatic;
-					};
-				};
 			};
 			buildConfigurationList = E0BF38B0335BE903B09CF0BA /* Build configuration list for PBXProject "ArabicKeyboard" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -216,6 +223,7 @@
 			files = (
 				2BBA7899E8A81F7CD7245A87 /* LaunchScreen.storyboard in Resources */,
 				241B2A202DEE2D5200FA3D96 /* Main.storyboard in Resources */,
+				FA657EB52E40FC2700E04636 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,14 +326,15 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = KeyboardHost;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = YY23S4NJ5R;
 				INFOPLIST_FILE = KeyboardHost/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.arabickeyboard.KeyboardHost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.YY23S4NJ5R.arabickeyboard;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -334,9 +343,10 @@
 		42605861BF771BB71C551B4C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Keyboard/Keyboard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = YY23S4NJ5R;
 				INFOPLIST_FILE = Keyboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -344,7 +354,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.arabickeyboard.KeyboardHost.Keyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.YY23S4NJ5R.arabickeyboard.Keyboard;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -357,14 +368,15 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = KeyboardHost;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = YY23S4NJ5R;
 				INFOPLIST_FILE = KeyboardHost/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.arabickeyboard.KeyboardHost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.YY23S4NJ5R.arabickeyboard;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -437,9 +449,10 @@
 		CA8AB9DF189D698580D23E87 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Keyboard/Keyboard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = YY23S4NJ5R;
 				INFOPLIST_FILE = Keyboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -447,7 +460,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.arabickeyboard.KeyboardHost.Keyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.YY23S4NJ5R.arabickeyboard.Keyboard;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
