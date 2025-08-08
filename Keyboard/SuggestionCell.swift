@@ -5,12 +5,14 @@ class SuggestionCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .white
+        // Use system colors that adapt to dark/light mode
+        contentView.backgroundColor = .secondarySystemBackground
         contentView.layer.cornerRadius = 6
         contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.gray.cgColor
+        contentView.layer.borderColor = UIColor.systemGray3.cgColor
 
         label.font = .systemFont(ofSize: 16)
+        label.textColor = .label  // Automatically black in light mode, white in dark mode
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(label)

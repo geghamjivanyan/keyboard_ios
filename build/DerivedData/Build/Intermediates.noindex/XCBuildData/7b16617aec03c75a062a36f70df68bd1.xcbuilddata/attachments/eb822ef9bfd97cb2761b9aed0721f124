@@ -1,0 +1,30 @@
+{
+  "" : {
+    "const-values" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/Keyboard-master.swiftconstvalues",
+    "dependencies" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/Keyboard-master.d",
+    "diagnostics" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/Keyboard-master.dia",
+    "emit-module-dependencies" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/Keyboard-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/Keyboard-master-emit-module.dia",
+    "swift-dependencies" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/Keyboard-master.swiftdeps"
+  },
+  "/Users/macbook/Desktop/keyboard_ios/Keyboard/KeyboardViewController.swift" : {
+    "index-unit-output-path" : "/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/KeyboardViewController.o",
+    "llvm-bc" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/KeyboardViewController.bc",
+    "object" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/KeyboardViewController.o"
+  },
+  "/Users/macbook/Desktop/keyboard_ios/Keyboard/MainTextTransformer.swift" : {
+    "index-unit-output-path" : "/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/MainTextTransformer.o",
+    "llvm-bc" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/MainTextTransformer.bc",
+    "object" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/MainTextTransformer.o"
+  },
+  "/Users/macbook/Desktop/keyboard_ios/Keyboard/NetworkService.swift" : {
+    "index-unit-output-path" : "/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/NetworkService.o",
+    "llvm-bc" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/NetworkService.bc",
+    "object" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/NetworkService.o"
+  },
+  "/Users/macbook/Desktop/keyboard_ios/Keyboard/SuggestionCell.swift" : {
+    "index-unit-output-path" : "/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/SuggestionCell.o",
+    "llvm-bc" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/SuggestionCell.bc",
+    "object" : "/Users/macbook/Desktop/keyboard_ios/build/DerivedData/Build/Intermediates.noindex/ArabicKeyboard.build/Release-iphoneos/Keyboard.build/Objects-normal/arm64/SuggestionCell.o"
+  }
+}

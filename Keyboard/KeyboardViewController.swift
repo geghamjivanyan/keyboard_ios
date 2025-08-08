@@ -122,6 +122,15 @@ final class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Check for full access
+        if !hasFullAccess {
+            print("⚠️ WARNING: Keyboard does not have Full Access enabled!")
+            print("Network requests will not work without Full Access")
+            print("User needs to enable: Settings → General → Keyboard → Keyboards → Arabic Keyboard → Allow Full Access")
+        } else {
+            print("✅ Keyboard has Full Access - network requests enabled")
+        }
+        
         // Создаем кнопку переключения клавиатуры системную
         self.nextKeyboardButton = UIButton(type: .system)
         self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
@@ -153,20 +162,19 @@ final class KeyboardViewController: UIInputViewController {
         
         // Создаем шестиугольные кнопки
         let screenWidth = UIScreen.main.bounds.width
-        let padding: CGFloat = 6 // отступы по краям
-        let numColumns: CGFloat = 6 // количество колонок
+        let padding: CGFloat = 4 // нормальные отступы
+        let numColumns: CGFloat = 6 // стандартное количество колонок
         
         // Рассчитываем оптимальный размер шестиугольника
-        // Учитываем, что ширина шестиугольника = размер * cos(30°) * 2 ≈ размер * 1.732
-        // И нужно учесть смещение рядов
+        // Делаем кнопки побольше, но чтобы все помещались
         let availableWidth = screenWidth - (padding * 2)
-        let hexWidth = availableWidth / (numColumns + 0.5) * 0.55 // +0.5 для смещения
+        let hexWidth = availableWidth / (numColumns + 0.5) * 0.68 // размер 0.68 как запрошено
         let hexSize = hexWidth / 0.866 // обратное от cos(30°)
         
-        let horizontalSpacing: CGFloat = hexWidth
-        let verticalSpacing: CGFloat = hexSize * 0.75 // для плотного расположения
+        let horizontalSpacing: CGFloat = hexWidth * 1.0 // стандартный промежуток
+        let verticalSpacing: CGFloat = hexSize * 0.72 // компактный вертикальный интервал
         let startX: CGFloat = padding + hexSize * 0.433 // половина ширины шестиугольника
-        let startY: CGFloat = 88
+        let startY: CGFloat = 72 // оптимальная позиция для больших кнопок
 
         for (rowIndex, row) in currentLayout.enumerated() {
             let itemsInRow = row.count
@@ -238,8 +246,8 @@ final class KeyboardViewController: UIInputViewController {
             rhythmsCollectionView.topAnchor.constraint(equalTo: suggestionsCollectionView.bottomAnchor),
             rhythmsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             rhythmsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            suggestionsCollectionView.heightAnchor.constraint(equalToConstant: 40),
-            rhythmsCollectionView.heightAnchor.constraint(equalToConstant: 40)
+            suggestionsCollectionView.heightAnchor.constraint(equalToConstant: 35),
+            rhythmsCollectionView.heightAnchor.constraint(equalToConstant: 35)
         ])
     }
 
@@ -299,10 +307,10 @@ final class KeyboardViewController: UIInputViewController {
         }
         
         button.setTitle(title, for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.label, for: .normal)  // Adapts to dark/light mode
         
         // Размер шрифта в зависимости от контента и размера кнопки
-        let fontSize = size / 2.5 // динамический размер шрифта
+        let fontSize = size / 2.0 // оптимальный размер шрифта
         if key.arabic == "تشكيل" {
             button.titleLabel?.font = .systemFont(ofSize: fontSize * 0.5, weight: .medium)
         } else if key.action != nil {
@@ -316,7 +324,7 @@ final class KeyboardViewController: UIInputViewController {
             let englishLabel = UILabel()
             englishLabel.text = key.english
             englishLabel.font = .systemFont(ofSize: fontSize * 0.4, weight: .light)
-            englishLabel.textColor = UIColor.darkGray.withAlphaComponent(0.7)
+            englishLabel.textColor = UIColor.secondaryLabel  // Adapts to dark/light mode
             englishLabel.frame = CGRect(x: 0, y: size - fontSize * 0.8, width: size, height: fontSize * 0.6)
             englishLabel.textAlignment = .center
             englishLabel.isUserInteractionEnabled = false // Важно!
@@ -364,6 +372,16 @@ final class KeyboardViewController: UIInputViewController {
             case .delete:
                 print("Delete pressed")
                 (textDocumentProxy as UIKeyInput).deleteBackward()
+                
+                // Clear suggestions and rhythms if all text is deleted
+                if textDocumentProxy.documentContextBeforeInput?.isEmpty ?? true {
+                    self.suggestions = []
+                    self.rhythms = []
+                    DispatchQueue.main.async {
+                        self.suggestionsCollectionView?.reloadData()
+                        self.rhythmsCollectionView?.reloadData()
+                    }
+                }
             case .switchKeyboard:
                 print("Switch keyboard pressed")
                 currentKeyboard = currentKeyboard == 1 ? 2 : 1
@@ -539,8 +557,30 @@ extension KeyboardViewController: UICollectionViewDataSource, UICollectionViewDe
             textDocumentProxy.insertText(suggestion)
             return
         }
+        // Rhythm tapped - send to API with current text and selected rhythm
         let rhythm = rhythms[indexPath.item]
-        textDocumentProxy.insertText(rhythm)
+        print("Rhythm tapped: \(rhythm)")
+        
+        // Get current text from the document proxy
+        let currentText = textDocumentProxy.documentContextBeforeInput ?? ""
+        
+        networkService.sendPhonemicsRequest(text: currentText, rhythms: rhythm, completion: { response in
+            // Only update if we got non-empty responses
+            if !response.data.suggestions.isEmpty {
+                self.suggestions = response.data.suggestions
+            }
+            if !response.data.rhythms.isEmpty {
+                self.rhythms = response.data.rhythms
+            }
+            DispatchQueue.main.async {
+                if !response.data.suggestions.isEmpty {
+                    self.suggestionsCollectionView?.reloadData()
+                }
+                if !response.data.rhythms.isEmpty {
+                    self.rhythmsCollectionView?.reloadData()
+                }
+            }
+        })
     }
 
     // MARK: - Flow Layout

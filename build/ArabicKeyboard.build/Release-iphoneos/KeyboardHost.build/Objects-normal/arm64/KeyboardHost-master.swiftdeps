@@ -1,10 +1,10 @@
 version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
 options: "2a58c50ad119f2a9ce4172501139367bc3f4b32114cb8dbdfc3f41708dcafa9d"
-build_start_time: [1754387437, 746127000]
-build_end_time: [1754387437, 750535000]
+build_start_time: [1754650940, 823756000]
+build_end_time: [1754650944, 335545000]
 inputs:
-  "/Users/macbook/Desktop/keyboard_ios/KeyboardHost/AppDelegate.swift": !dirty [1754294743, 476746090]
-  "/Users/macbook/Desktop/keyboard_ios/KeyboardHost/SceneDelegate.swift": !dirty [1754294743, 477288585]
-  "/Users/macbook/Desktop/keyboard_ios/KeyboardHost/ViewController.swift": !dirty [1754294743, 477463042]
+  "/Users/macbook/Desktop/keyboard_ios/KeyboardHost/AppDelegate.swift": [1754294743, 476746090]
+  "/Users/macbook/Desktop/keyboard_ios/KeyboardHost/SceneDelegate.swift": [1754294743, 477288585]
+  "/Users/macbook/Desktop/keyboard_ios/KeyboardHost/ViewController.swift": [1754294743, 477463042]
   ? "/Users/macbook/Desktop/keyboard_ios/build/ArabicKeyboard.build/Release-iphoneos/KeyboardHost.build/DerivedSources/GeneratedAssetSymbols.swift"
-  : !dirty [1754387437, 681836438]
+  : [1754650940, 817356979]

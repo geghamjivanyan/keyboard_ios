@@ -1,9 +1,0 @@
-"/Users/macbook/Desktop/keyboard_ios/KeyboardHost/AppDelegate.swift":
-  objc-header: "/Users/macbook/Desktop/keyboard_ios/build/ArabicKeyboard.build/Release-iphoneos/KeyboardHost.build/Objects-normal/arm64/KeyboardHost-Swift.h"
-  swiftdoc: "/Users/macbook/Desktop/keyboard_ios/build/ArabicKeyboard.build/Release-iphoneos/KeyboardHost.build/Objects-normal/arm64/KeyboardHost.swiftdoc"
-  dependencies: "/Users/macbook/Desktop/keyboard_ios/build/ArabicKeyboard.build/Release-iphoneos/KeyboardHost.build/Objects-normal/arm64/KeyboardHost-master.d"
-  const-values: "/Users/macbook/Desktop/keyboard_ios/build/ArabicKeyboard.build/Release-iphoneos/KeyboardHost.build/Objects-normal/arm64/KeyboardHost-master.swiftconstvalues"
-  diagnostics: "/Users/macbook/Desktop/keyboard_ios/build/ArabicKeyboard.build/Release-iphoneos/KeyboardHost.build/Objects-normal/arm64/KeyboardHost-master.dia"
-  swiftsourceinfo: "/Users/macbook/Desktop/keyboard_ios/build/ArabicKeyboard.build/Release-iphoneos/KeyboardHost.build/Objects-normal/arm64/KeyboardHost.swiftsourceinfo"
-  swiftmodule: "/Users/macbook/Desktop/keyboard_ios/build/ArabicKeyboard.build/Release-iphoneos/KeyboardHost.build/Objects-normal/arm64/KeyboardHost.swiftmodule"
-  abi-baseline-json: "/Users/macbook/Desktop/keyboard_ios/build/ArabicKeyboard.build/Release-iphoneos/KeyboardHost.build/Objects-normal/arm64/KeyboardHost.abi.json"

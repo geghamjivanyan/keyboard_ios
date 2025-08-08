@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApplicationProperties</key>
+	<dict>
+		<key>ApplicationPath</key>
+		<string>Applications/KeyboardHost.app</string>
+		<key>CFBundleIdentifier</key>
+		<string>com.YY23S4NJ5R.arabickeyboard</string>
+		<key>CFBundleShortVersionString</key>
+		<string>1.0</string>
+		<key>CFBundleVersion</key>
+		<string>2</string>
+	</dict>
+	<key>ArchiveVersion</key>
+	<integer>2</integer>
+	<key>CreationDate</key>
+	<date>2025-08-08T10:45:24Z</date>
+	<key>Distributions</key>
+	<array>
+		<dict>
+			<key>adamId</key>
+			<string>6749571626</string>
+			<key>certificateSHA1</key>
+			<string>ED4AD344B71302AB44A696A2628F6FD7D62CCDDB</string>
+			<key>destination</key>
+			<string>upload</string>
+			<key>identifier</key>
+			<string>131cb92b-b58b-40c4-a98b-97d0f385595d</string>
+			<key>preparationEvent</key>
+			<dict>
+				<key>date</key>
+				<string>2025-08-08T10:50:31Z</string>
+				<key>errors</key>
+				<array/>
+				<key>infoMessages</key>
+				<array/>
+				<key>shortTitle</key>
+				<string>Prepared</string>
+				<key>state</key>
+				<string>success</string>
+				<key>title</key>
+				<string>Prepared archive for uploading</string>
+				<key>warnings</key>
+				<array/>
+			</dict>
+			<key>providerId</key>
+			<string>df19a46f-81df-461e-9bc8-e9594c6c33b0</string>
+			<key>task</key>
+			<string>distribute</string>
+			<key>teamID</key>
+			<string>YY23S4NJ5R</string>
+			<key>uploadDestination</key>
+			<string>App Store</string>
+			<key>uploadEvent</key>
+			<dict>
+				<key>date</key>
+				<string>2025-08-08T10:51:16Z</string>
+				<key>errors</key>
+				<array>
+					<dict>
+						<key>code</key>
+						<integer>409</integer>
+						<key>description</key>
+						<string>Validation failed</string>
+						<key>domain</key>
+						<string>ContentDelivery</string>
+						<key>recoverySuggestion</key>
+						<string>This bundle is invalid. The IPA format requires a top-level directory named Payload, containing only a .app bundle and optional plugins in a Plugins directory. (ID: c71c6a75-1cc2-4a46-bd74-d68901c39961)</string>
+					</dict>
+				</array>
+				<key>infoMessages</key>
+				<array/>
+				<key>shortTitle</key>
+				<string>Upload failed</string>
+				<key>state</key>
+				<string>errors</string>
+				<key>title</key>
+				<string>Upload failed</string>
+				<key>warnings</key>
+				<array/>
+			</dict>
+			<key>uploadedBuildNumber</key>
+			<string>3</string>
+		</dict>
+	</array>
+	<key>Name</key>
+	<string>KeyboardHost</string>
+	<key>SchemeName</key>
+	<string>KeyboardHost</string>
+</dict>
+</plist>
